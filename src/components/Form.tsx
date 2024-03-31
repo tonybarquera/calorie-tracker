@@ -4,7 +4,7 @@ import type { Activity } from "../types";
 
 function Form() {
   const [ activity, setActivity ] = useState<Activity>({
-    category: '1',
+    category: 1,
     name: '',
     calories: 0
   });
@@ -16,6 +16,11 @@ function Form() {
     });
   }
 
+  const isValidActivity = () => {
+    const { name, calories } = activity;
+    return name.trim() !== '' && calories > 0;
+  }
+  
   return (
     <form
       className="space-y-5 bg-white shadow-lg p-10 rounded-lg"
@@ -63,8 +68,9 @@ function Form() {
 
       <input 
         type="submit"
-        className="bg-gray-800 hover:bg-gray-900 w-full p-2 font-bold uppercase text-white cursor-pointer rounded-lg"
-        value="Guardar Comida o Guardar Ejercicio" 
+        className="bg-gray-800 hover:bg-gray-900 w-full p-2 font-bold uppercase text-white cursor-pointer rounded-lg disabled:opacity-50 disabled:cursor-auto disabled:hover:bg-gray-800"
+        value={`Guardar ${categories[activity.category - 1].name}`} 
+        disabled={!isValidActivity()}
       />
     </form>
   )
