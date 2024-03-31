@@ -4,7 +4,7 @@ export interface Category {
 }
 
 export interface Activity {
-  category: string;
+  category: number;
   name: string;
   calories: number;
 }
