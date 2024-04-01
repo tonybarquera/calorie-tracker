@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <header className="bg-lime-600 py-3">
-        <div className="px-5 max-w-4xl mx-auto flex justify-between">
+        <div className="px-5 max-w-4xl mx-auto flex justify-between items-center">
           <h1 className="text-center text-lg font-bold text-white uppercase">Contador de Calorías</h1>
           <button className="bg-gray-800 hover:bg-gray-900 p-2 font-bold uppercase text-white hover:cursor-pointer rounded-lg text-sm disabled:hover:cursor-auto disabled:opacity-10" disabled={!canRestartApp} onClick={() => dispatch({ type: 'restart-app' })}>Reiniciar App</button>
         </div>
